@@ -36,7 +36,7 @@ class ProductManager{
 
     async getProducts(){
         //const arrayProducts = await this.readFile();
-        //console.log(arrayProducts);
+        //console.log(arrayProducts); 
         console.log(this.products);
     }
 
@@ -105,6 +105,24 @@ class ProductManager{
             console.log("Error reading file", error);
         }
     }
+
+    /*
+    async readFile(){
+        try{
+            try{
+                const answer = await fs.promises.readFile(this.path, "utf-8");
+                const arrayProducts = JSON.parse(answer);
+    
+                return arrayProducts;
+            } catch (error){
+                console.log("Error reading file", error);
+            }
+        }catch(error){
+            console.log("Error reading file", error);
+        }
+        
+    }
+    */
 }
 
 
@@ -113,6 +131,9 @@ class ProductManager{
 
 //Testing:
 //Para correrlo desde la terminal del vsc: node productManager.js
+
+//Para probar con el readFile de getProducts, descomentar las 2 lineas de getProducts y comentar console.log(this.products);
+//Lo mismo con readFile, descomentar la que esta comentada(la que tiene 2 try/catch) y comentar la que tiene 1 try/catch
 
 //1) Se creará una instancia de la clase “ProductManager”
 const productTest = new ProductManager("./products.json");
