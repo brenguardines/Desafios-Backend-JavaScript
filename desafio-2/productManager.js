@@ -45,7 +45,6 @@ class ProductManager{
             const arrayProducts = await this.readFile();
             const product = arrayProducts.find(item => item.id === id);
 
-            //!product ? console.error("Not found") : console.log(product);
             product ? console.log(product) : console.error("Not found");
         } catch (error){
             console.log("Error reading file", error);
