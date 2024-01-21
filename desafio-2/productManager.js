@@ -35,9 +35,12 @@ class ProductManager{
     }
 
     async getProducts(){
-        //const arrayProducts = await this.readFile();
-        //console.log(arrayProducts); 
-        console.log(this.products);
+        try {
+            const arrayProducts = await this.readFile();
+            return arrayProducts;
+          } catch (error) {
+            console.log("Error reading file", error);
+          }
     }
 
     async getProductsById(id){
@@ -58,8 +61,9 @@ class ProductManager{
             const index = arrayProducts.findIndex(item => item.id === id);
 
             if(index !== -1){
-                arrayProducts.splice(index, 1, productUpdate);
+                arrayProducts[index] = { ...arrayProducts[index], ...productUpdate };
                 await this.saveFile(arrayProducts);
+                console.log("Product update successfully");
             }else{
                 console.error("Not found");
             } 
@@ -71,10 +75,11 @@ class ProductManager{
     async deleteProduct(id){
         try{
             const arrayProducts = await this.readFile();
-            const productsFilter = arrayProducts.filter(item => item.id != id);
+            const index = arrayProducts.findIndex(item => item.id === id);
 
-            if(productsFilter.length < arrayProducts.length){
-                await this.saveFile(productsFilter);
+            if(index !== -1){
+                arrayProducts.splice(index,1);
+                await this.saveFile(arrayProducts);
                 console.log("Product deleted");
             }else{
                 console.error("Not found");
@@ -104,24 +109,6 @@ class ProductManager{
             console.log("Error reading file", error);
         }
     }
-
-    /*
-    async readFile(){
-        try{
-            try{
-                const answer = await fs.promises.readFile(this.path, "utf-8");
-                const arrayProducts = JSON.parse(answer);
-    
-                return arrayProducts;
-            } catch (error){
-                console.log("Error reading file", error);
-            }
-        }catch(error){
-            console.log("Error reading file", error);
-        }
-        
-    }
-    */
 }
 
 
@@ -130,9 +117,6 @@ class ProductManager{
 
 //Testing:
 //Para correrlo desde la terminal del vsc: node productManager.js
-
-//Para probar con el readFile de getProducts, descomentar las 2 lineas de getProducts y comentar console.log(this.products);
-//Lo mismo con readFile, descomentar la que esta comentada(la que tiene 2 try/catch) y comentar la que tiene 1 try/catch
 
 //1) Se creará una instancia de la clase “ProductManager”
 const productTest = new ProductManager("./products.json");
