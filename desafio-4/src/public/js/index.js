@@ -14,7 +14,7 @@ const renderProducts = (products) => {
 
         card.innerHTML = `
                             <p> ${item.id} </p>
-                            <p> ${item.title} </p>
+                            <p> ${item.tittle} </p>
                             <p> ${item.price} </p>
                             <button> Delete </button>
                          `;
@@ -37,7 +37,7 @@ document.getElementById("btnSend").addEventListener("click", () => {
 
 const addProduct = () => {
     const product = {
-        tittle: document.getElementById("title").value,
+        tittle: document.getElementById("tittle").value,
         description: document.getElementById("description").value,
         price: document.getElementById("price").value,
         img: document.getElementById("img").value,
