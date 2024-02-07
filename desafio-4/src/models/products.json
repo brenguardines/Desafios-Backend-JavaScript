@@ -5,9 +5,11 @@
     "description": "Este es un producto prueba",
     "price": 200,
     "img": "Sin imagen",
-    "thumbnail": [],
     "code": "abc123",
-    "stock": 25
+    "stock": 25,
+    "category": "Categoria",
+    "status": true,
+    "thumbnails": []
   },
   {
     "id": 2,
