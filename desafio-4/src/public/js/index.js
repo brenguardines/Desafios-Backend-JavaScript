@@ -1,6 +1,6 @@
-const socke = io();
+const socket = io();
 
-socke.on("products", (data) => {
+socket.on("products", (data) => {
     renderProducts(data);
 });
 
@@ -17,7 +17,7 @@ const renderProducts = (products) => {
                             <p> ${item.title} </p>
                             <p> ${item.price} </p>
                             <button> Delete </button>
-                         `
+                         `;
         containerProducts.appendChild(card);
 
         card.querySelector("button").addEventListener("click", () => {
