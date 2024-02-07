@@ -37,7 +37,7 @@ document.getElementById("btnSend").addEventListener("click", () => {
 
 const addProduct = () => {
     const product = {
-        tittle: document.getElementById("tittle").value,
+        tittle: document.getElementById("title").value,
         description: document.getElementById("description").value,
         price: document.getElementById("price").value,
         img: document.getElementById("img").value,
