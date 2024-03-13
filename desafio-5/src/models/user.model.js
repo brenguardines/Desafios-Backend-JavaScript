@@ -6,12 +6,12 @@ const userSchema = mongoose.Schema({
         required: true
     },
 
-    last_name : {
+    last_name: {
         type: String, 
         required: true
     },
 
-    email : {
+    email: {
         type: String, 
         required: true,
         index: true, 
@@ -20,6 +20,11 @@ const userSchema = mongoose.Schema({
 
     password: {
         type: String, 
+        required: true
+    },
+
+    rol: {
+        type: String,
         required: true
     }
 });

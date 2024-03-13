@@ -16,7 +16,8 @@ router.post("/", async (request, response) => {
             first_name,
             last_name,
             email,
-            password: createHash(password)
+            password: createHash(password),
+            rol: "user"
         });
 
         request.session.login = true;
