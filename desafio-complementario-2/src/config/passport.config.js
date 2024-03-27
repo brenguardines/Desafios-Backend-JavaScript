@@ -40,7 +40,7 @@ const initializePassport = () => {
         try {
             const user = await UserModel.findOne({email});
             if(!user) {
-                console.log("Este usuario no existeeeeeee ahhh");
+                console.log("This email is already exists");
                 return done(null, false);
             }
             if(!isValidPassword(password, user)) return done(null, false);
