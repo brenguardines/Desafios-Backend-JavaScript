@@ -6,7 +6,7 @@ const MongoStore = require("connect-mongo");
 const initializePassport = require("./config/passport.config.js");
 const passport = require("passport");
 const app = express();
-const PUERTO = 8089;
+const PUERTO = 8080;
 
 const productsRouter = require("./routes/products.router.js");
 const cartsRouter = require("./routes/carts.router.js");
