@@ -7,6 +7,7 @@ const generatedProducts = () => {
         description: faker.commerce.productDescription(),
         price: faker.commerce.price(),
         img: faker.image.avatar(),
+        category: faker.commerce.department(),
         stock: parseInt(faker.string.numeric())
     }
 }
